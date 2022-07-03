@@ -6,20 +6,342 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>597</width>
-    <height>404</height>
+    <width>430</width>
+    <height>500</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="lineEdit_IP">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="inputMask">
+         <string>000.000.000.000</string>
+        </property>
+        <property name="text">
+         <string>10.0.0.1</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_Mask">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>MASK:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="lineEdit_Mask">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="inputMask">
+         <string>000.000.000.000</string>
+        </property>
+        <property name="text">
+         <string>255.255.255.0</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_IP">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>IP:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,1,100">
+        <item>
+         <widget class="QLabel" name="label_CIDR">
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string> /</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lineEdit_CIDR">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>24</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item row="1" column="2">
+       <widget class="QSlider" name="horizontalSlider">
+        <property name="maximum">
+         <number>32</number>
+        </property>
+        <property name="value">
+         <number>24</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="tickPosition">
+         <enum>QSlider::NoTicks</enum>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab">
+       <attribute name="title">
+        <string>Info</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QTableWidget" name="tableWidget_Info">
+          <property name="layoutDirection">
+           <enum>Qt::LeftToRight</enum>
+          </property>
+          <property name="alternatingRowColors">
+           <bool>true</bool>
+          </property>
+          <property name="selectionMode">
+           <enum>QAbstractItemView::NoSelection</enum>
+          </property>
+          <attribute name="horizontalHeaderVisible">
+           <bool>false</bool>
+          </attribute>
+          <attribute name="horizontalHeaderStretchLastSection">
+           <bool>true</bool>
+          </attribute>
+          <row>
+           <property name="text">
+            <string>IP Address</string>
+           </property>
+          </row>
+          <row>
+           <property name="text">
+            <string>IP Type</string>
+           </property>
+          </row>
+          <row>
+           <property name="text">
+            <string>IP Class</string>
+           </property>
+          </row>
+          <row>
+           <property name="text">
+            <string>Network Address</string>
+           </property>
+          </row>
+          <row>
+           <property name="text">
+            <string>Broadcast Address</string>
+           </property>
+          </row>
+          <row>
+           <property name="text">
+            <string>Subnet Mask</string>
+           </property>
+          </row>
+          <row>
+           <property name="text">
+            <string>Wildcard Mask</string>
+           </property>
+          </row>
+          <row>
+           <property name="text">
+            <string>Number of Hosts</string>
+           </property>
+          </row>
+          <row>
+           <property name="text">
+            <string>Gateway</string>
+           </property>
+          </row>
+          <row>
+           <property name="text">
+            <string>Aderess Range</string>
+           </property>
+          </row>
+          <row>
+           <property name="text">
+            <string>Usable Adaresses</string>
+           </property>
+          </row>
+          <column>
+           <property name="text">
+            <string>Decimal</string>
+           </property>
+          </column>
+          <item row="0" column="0">
+           <property name="text">
+            <string>10.0.0.1</string>
+           </property>
+           <property name="textAlignment">
+            <set>AlignTrailing|AlignVCenter</set>
+           </property>
+          </item>
+          <item row="1" column="0">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="textAlignment">
+            <set>AlignTrailing|AlignVCenter</set>
+           </property>
+          </item>
+          <item row="2" column="0">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="textAlignment">
+            <set>AlignTrailing|AlignVCenter</set>
+           </property>
+          </item>
+          <item row="3" column="0">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="textAlignment">
+            <set>AlignTrailing|AlignVCenter</set>
+           </property>
+          </item>
+          <item row="4" column="0">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="textAlignment">
+            <set>AlignTrailing|AlignVCenter</set>
+           </property>
+          </item>
+          <item row="5" column="0">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="textAlignment">
+            <set>AlignTrailing|AlignVCenter</set>
+           </property>
+          </item>
+          <item row="6" column="0">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="textAlignment">
+            <set>AlignTrailing|AlignVCenter</set>
+           </property>
+          </item>
+          <item row="7" column="0">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="textAlignment">
+            <set>AlignTrailing|AlignVCenter</set>
+           </property>
+          </item>
+          <item row="8" column="0">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="textAlignment">
+            <set>AlignTrailing|AlignVCenter</set>
+           </property>
+          </item>
+          <item row="9" column="0">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="textAlignment">
+            <set>AlignTrailing|AlignVCenter</set>
+           </property>
+          </item>
+          <item row="10" column="0">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="textAlignment">
+            <set>AlignTrailing|AlignVCenter</set>
+           </property>
+          </item>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_2">
+       <attribute name="title">
+        <string>FLSM</string>
+       </attribute>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>597</width>
+     <width>430</width>
      <height>21</height>
     </rect>
    </property>
