@@ -18,6 +18,13 @@ public:
 private slots:
     void on_horizontalSlider_valueChanged(int value);
 
+    void on_lineEdit_Mask_editingFinished();
+
+    void on_lineEdit_IP_editingFinished();
+
+    void on_lineEdit_CIDR_editingFinished();
+
+
 private:
     Ui::MainWindow *ui;
 };

@@ -110,6 +110,9 @@
             <pointsize>12</pointsize>
            </font>
           </property>
+          <property name="inputMask">
+           <string>00</string>
+          </property>
           <property name="text">
            <string>24</string>
           </property>
@@ -153,7 +156,7 @@
       <property name="currentIndex">
        <number>0</number>
       </property>
-      <widget class="QWidget" name="tab">
+      <widget class="QWidget" name="tab_info">
        <attribute name="title">
         <string>Info</string>
        </attribute>
@@ -363,7 +366,7 @@
           </item>
           <item row="11" column="0">
            <property name="text">
-            <string>C</string>
+            <string>A</string>
            </property>
            <property name="textAlignment">
             <set>AlignTrailing|AlignVCenter</set>
@@ -376,10 +379,31 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tab_2">
+      <widget class="QWidget" name="tab_FLSM">
        <attribute name="title">
         <string>FLSM</string>
        </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QTableWidget" name="tableWidget_FLSM">
+          <column>
+           <property name="text">
+            <string>Network</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Hosts</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Broadcast</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+       </layout>
       </widget>
      </widget>
     </item>
@@ -394,8 +418,77 @@
      <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuSettings">
+    <property name="title">
+     <string>Settings</string>
+    </property>
+    <addaction name="actionBinary"/>
+    <addaction name="actionOctal"/>
+    <addaction name="actionDecimal"/>
+    <addaction name="actionHexadecimal"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuSettings"/>
+   <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionBinary">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Binary</string>
+   </property>
+  </action>
+  <action name="actionOctal">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Octal</string>
+   </property>
+  </action>
+  <action name="actionDecimal">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Decimal</string>
+   </property>
+  </action>
+  <action name="actionHexadecimal">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Hexadecimal</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
