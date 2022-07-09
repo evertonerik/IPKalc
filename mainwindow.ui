@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>430</width>
-    <height>500</height>
+    <height>542</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -182,22 +182,32 @@
           </row>
           <row>
            <property name="text">
-            <string>IP Type</string>
-           </property>
-          </row>
-          <row>
-           <property name="text">
-            <string>IP Class</string>
-           </property>
-          </row>
-          <row>
-           <property name="text">
             <string>Network Address</string>
            </property>
           </row>
           <row>
            <property name="text">
+            <string>Address Range</string>
+           </property>
+          </row>
+          <row>
+           <property name="text">
+            <string>Usable Adaresses</string>
+           </property>
+          </row>
+          <row>
+           <property name="text">
             <string>Broadcast Address</string>
+           </property>
+          </row>
+          <row>
+           <property name="text">
+            <string>Gateway</string>
+           </property>
+          </row>
+          <row>
+           <property name="text">
+            <string>Number of Hosts</string>
            </property>
           </row>
           <row>
@@ -212,27 +222,22 @@
           </row>
           <row>
            <property name="text">
-            <string>Number of Hosts</string>
+            <string>CIDR</string>
            </property>
           </row>
           <row>
            <property name="text">
-            <string>Gateway</string>
+            <string>Type</string>
            </property>
           </row>
           <row>
            <property name="text">
-            <string>Aderess Range</string>
-           </property>
-          </row>
-          <row>
-           <property name="text">
-            <string>Usable Adaresses</string>
+            <string>Class</string>
            </property>
           </row>
           <column>
            <property name="text">
-            <string>Decimal</string>
+            <string/>
            </property>
           </column>
           <item row="0" column="0">
@@ -242,29 +247,41 @@
            <property name="textAlignment">
             <set>AlignTrailing|AlignVCenter</set>
            </property>
+           <property name="flags">
+            <set>ItemIsEnabled</set>
+           </property>
           </item>
           <item row="1" column="0">
-           <property name="text">
-            <string>Private</string>
-           </property>
-           <property name="textAlignment">
-            <set>AlignTrailing|AlignVCenter</set>
-           </property>
-          </item>
-          <item row="2" column="0">
-           <property name="text">
-            <string>C</string>
-           </property>
-           <property name="textAlignment">
-            <set>AlignTrailing|AlignVCenter</set>
-           </property>
-          </item>
-          <item row="3" column="0">
            <property name="text">
             <string>10.0.0.0</string>
            </property>
            <property name="textAlignment">
             <set>AlignTrailing|AlignVCenter</set>
+           </property>
+           <property name="flags">
+            <set>ItemIsEnabled</set>
+           </property>
+          </item>
+          <item row="2" column="0">
+           <property name="text">
+            <string>10.0.0.1-10.0.0.254</string>
+           </property>
+           <property name="textAlignment">
+            <set>AlignTrailing|AlignVCenter</set>
+           </property>
+           <property name="flags">
+            <set>ItemIsEnabled</set>
+           </property>
+          </item>
+          <item row="3" column="0">
+           <property name="text">
+            <string>10.0.0.2-10.0.0.254</string>
+           </property>
+           <property name="textAlignment">
+            <set>AlignTrailing|AlignVCenter</set>
+           </property>
+           <property name="flags">
+            <set>ItemIsEnabled</set>
            </property>
           </item>
           <item row="4" column="0">
@@ -274,53 +291,85 @@
            <property name="textAlignment">
             <set>AlignTrailing|AlignVCenter</set>
            </property>
+           <property name="flags">
+            <set>ItemIsEnabled</set>
+           </property>
           </item>
           <item row="5" column="0">
-           <property name="text">
-            <string>255.255.255.0</string>
-           </property>
-           <property name="textAlignment">
-            <set>AlignTrailing|AlignVCenter</set>
-           </property>
-          </item>
-          <item row="6" column="0">
-           <property name="text">
-            <string>0.0.0.255</string>
-           </property>
-           <property name="textAlignment">
-            <set>AlignTrailing|AlignVCenter</set>
-           </property>
-          </item>
-          <item row="7" column="0">
-           <property name="text">
-            <string>254</string>
-           </property>
-           <property name="textAlignment">
-            <set>AlignTrailing|AlignVCenter</set>
-           </property>
-          </item>
-          <item row="8" column="0">
            <property name="text">
             <string>10.0.0.1</string>
            </property>
            <property name="textAlignment">
             <set>AlignTrailing|AlignVCenter</set>
            </property>
+           <property name="flags">
+            <set>ItemIsEnabled</set>
+           </property>
           </item>
-          <item row="9" column="0">
+          <item row="6" column="0">
            <property name="text">
-            <string>10.0.0.1-10.0.0.254</string>
+            <string>254</string>
            </property>
            <property name="textAlignment">
             <set>AlignTrailing|AlignVCenter</set>
+           </property>
+           <property name="flags">
+            <set>ItemIsEnabled</set>
+           </property>
+          </item>
+          <item row="7" column="0">
+           <property name="text">
+            <string>255.255.255.0</string>
+           </property>
+           <property name="textAlignment">
+            <set>AlignTrailing|AlignVCenter</set>
+           </property>
+           <property name="flags">
+            <set>ItemIsEnabled</set>
+           </property>
+          </item>
+          <item row="8" column="0">
+           <property name="text">
+            <string>0.0.0.255</string>
+           </property>
+           <property name="textAlignment">
+            <set>AlignTrailing|AlignVCenter</set>
+           </property>
+           <property name="flags">
+            <set>ItemIsEnabled</set>
+           </property>
+          </item>
+          <item row="9" column="0">
+           <property name="text">
+            <string>/24</string>
+           </property>
+           <property name="textAlignment">
+            <set>AlignTrailing|AlignVCenter</set>
+           </property>
+           <property name="flags">
+            <set>ItemIsEnabled</set>
            </property>
           </item>
           <item row="10" column="0">
            <property name="text">
-            <string>10.0.0.2-10.0.0.254</string>
+            <string>Private</string>
            </property>
            <property name="textAlignment">
             <set>AlignTrailing|AlignVCenter</set>
+           </property>
+           <property name="flags">
+            <set>ItemIsEnabled</set>
+           </property>
+          </item>
+          <item row="11" column="0">
+           <property name="text">
+            <string>C</string>
+           </property>
+           <property name="textAlignment">
+            <set>AlignTrailing|AlignVCenter</set>
+           </property>
+           <property name="flags">
+            <set>ItemIsEnabled</set>
            </property>
           </item>
          </widget>
@@ -342,7 +391,7 @@
      <x>0</x>
      <y>0</y>
      <width>430</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
