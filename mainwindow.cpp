@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "QDebug"
+#include "cmath"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -75,20 +75,42 @@ void MainWindow::on_horizontalSlider_valueChanged(int value)
 
     ui->tableWidget_Info->item(0,0)->setText(ip2Qstring(ip,base));
     ui->tableWidget_Info->item(1,0)->setText(ip2Qstring(network,base));
-    ui->tableWidget_Info->item(2,0)->setText(ip2Qstring(network+1,base)+"-"+ip2Qstring((network|wild)-1,base));
-    ui->tableWidget_Info->item(3,0)->setText(ip2Qstring(network+2,base)+"-"+ip2Qstring((network|wild)-1,base));
-    ui->tableWidget_Info->item(4,0)->setText(ip2Qstring(network|wild,base));
-    ui->tableWidget_Info->item(5,0)->setText(ip2Qstring(network+1,base));
-    ui->tableWidget_Info->item(6,0)->setText(QString::number(wild-1));
-    ui->tableWidget_Info->item(7,0)->setText(ip2Qstring(mask,base));
-    ui->tableWidget_Info->item(8,0)->setText(ip2Qstring(wild,base));
-    ui->tableWidget_Info->item(9,0)->setText("/"+ui->lineEdit_CIDR->text());
+    ui->tableWidget_Info->item(2,0)->setText(ip2Qstring(mask,base));
+    ui->tableWidget_Info->item(3,0)->setText(ip2Qstring(wild,base));
+    ui->tableWidget_Info->item(4,0)->setText("/"+ui->lineEdit_CIDR->text());
+    ui->tableWidget_Info->item(5,0)->setText(ip2Qstring(network+1,base)+"-"+ip2Qstring((network|wild)-1,base));
+    ui->tableWidget_Info->item(6,0)->setText(ip2Qstring(network+2,base)+"-"+ip2Qstring((network|wild)-1,base));
+    ui->tableWidget_Info->item(7,0)->setText(ip2Qstring(network|wild,base));
+    ui->tableWidget_Info->item(8,0)->setText(ip2Qstring(network+1,base));
+    ui->tableWidget_Info->item(9,0)->setText(QString::number(wild-1));
     ui->tableWidget_Info->item(10,0)->setText(iptype);
     ui->tableWidget_Info->item(11,0)->setText(ipclass);
 
 
     //=======FLSM TAB
-    //ui->tableWidget_FLSM->setRowCount();
+    int nFLSM = pow(2,value % 8);
+    if (nFLSM == 1){nFLSM = 256;}
+
+    unsigned int netFLSM = ((value-1)/8)*8;
+    if (value == 0){
+        netFLSM = 0;
+        nFLSM = 1;
+    }
+
+    unsigned int maskFLSM = ( 4294967295  >> (32 - netFLSM) ) << (32 - netFLSM);
+    unsigned int hostsFLSM = (256/nFLSM) << (24 - netFLSM);
+    unsigned int networkFLSM = 0;
+    netFLSM = ip&maskFLSM;
+
+    ui->tableWidget_FLSM->clearContents();
+    ui->tableWidget_FLSM->setRowCount(nFLSM);
+
+    for (int i = 0; i < nFLSM ; i++){
+        networkFLSM = netFLSM|(hostsFLSM*i);
+        ui->tableWidget_FLSM->setItem(i,0, new QTableWidgetItem(ip2Qstring(networkFLSM,base)));
+        ui->tableWidget_FLSM->setItem(i,1, new QTableWidgetItem(ip2Qstring(networkFLSM+1,base)+"-"+ip2Qstring((networkFLSM|wild)-1,base)));
+        ui->tableWidget_FLSM->setItem(i,2, new QTableWidgetItem(ip2Qstring(networkFLSM|wild,base)));
+    }
 }
 
 
