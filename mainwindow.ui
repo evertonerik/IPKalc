@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>430</width>
-    <height>542</height>
+    <width>450</width>
+    <height>550</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -386,6 +386,27 @@
        <layout class="QVBoxLayout" name="verticalLayout_3">
         <item>
          <widget class="QTableWidget" name="tableWidget_FLSM">
+          <property name="sizeAdjustPolicy">
+           <enum>QAbstractScrollArea::AdjustToContents</enum>
+          </property>
+          <property name="editTriggers">
+           <set>QAbstractItemView::NoEditTriggers</set>
+          </property>
+          <property name="alternatingRowColors">
+           <bool>true</bool>
+          </property>
+          <property name="selectionBehavior">
+           <enum>QAbstractItemView::SelectRows</enum>
+          </property>
+          <attribute name="horizontalHeaderMinimumSectionSize">
+           <number>100</number>
+          </attribute>
+          <attribute name="horizontalHeaderDefaultSectionSize">
+           <number>100</number>
+          </attribute>
+          <attribute name="horizontalHeaderStretchLastSection">
+           <bool>false</bool>
+          </attribute>
           <attribute name="verticalHeaderVisible">
            <bool>false</bool>
           </attribute>
@@ -417,7 +438,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>430</width>
+     <width>450</width>
      <height>21</height>
     </rect>
    </property>
@@ -451,7 +472,6 @@
    <addaction name="menuSettings"/>
    <addaction name="menuHelp"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
   <action name="actionBinary">
    <property name="checkable">
     <bool>true</bool>

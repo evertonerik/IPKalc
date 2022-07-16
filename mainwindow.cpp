@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "cmath"
+#include "QDebug"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -13,6 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
     BaseGroup->addAction(ui->actionDecimal);
     BaseGroup->addAction(ui->actionHexadecimal);
     BaseGroup->setExclusive(true);
+
 }
 
 MainWindow::~MainWindow()
@@ -67,7 +69,7 @@ void MainWindow::on_horizontalSlider_valueChanged(int value)
         ipclass = "E";
         iptype = "Experimental";
     }
-
+    if (value == 31){iptype += " - Point to Point";}
 
 
     ui->lineEdit_CIDR->setText(QString::number(value));
@@ -78,11 +80,19 @@ void MainWindow::on_horizontalSlider_valueChanged(int value)
     ui->tableWidget_Info->item(2,0)->setText(ip2Qstring(mask,base));
     ui->tableWidget_Info->item(3,0)->setText(ip2Qstring(wild,base));
     ui->tableWidget_Info->item(4,0)->setText("/"+ui->lineEdit_CIDR->text());
-    ui->tableWidget_Info->item(5,0)->setText(ip2Qstring(network+1,base)+"-"+ip2Qstring((network|wild)-1,base));
-    ui->tableWidget_Info->item(6,0)->setText(ip2Qstring(network+2,base)+"-"+ip2Qstring((network|wild)-1,base));
-    ui->tableWidget_Info->item(7,0)->setText(ip2Qstring(network|wild,base));
-    ui->tableWidget_Info->item(8,0)->setText(ip2Qstring(network+1,base));
-    ui->tableWidget_Info->item(9,0)->setText(QString::number(wild-1));
+    if (value > 30){
+        ui->tableWidget_Info->item(5,0)->setText(ip2Qstring(network,base)+"-"+ip2Qstring((network|wild),base));
+        ui->tableWidget_Info->item(6,0)->setText(ip2Qstring(network,base)+"-"+ip2Qstring((network|wild),base));
+        ui->tableWidget_Info->item(7,0)->setText("-");
+        ui->tableWidget_Info->item(8,0)->setText("-");
+        ui->tableWidget_Info->item(9,0)->setText(QString::number(wild+1));
+    }else {
+        ui->tableWidget_Info->item(5,0)->setText(ip2Qstring(network+1,base)+"-"+ip2Qstring((network|wild)-1,base));
+        ui->tableWidget_Info->item(6,0)->setText(ip2Qstring(network+2,base)+"-"+ip2Qstring((network|wild)-1,base));
+        ui->tableWidget_Info->item(7,0)->setText(ip2Qstring(network|wild,base));
+        ui->tableWidget_Info->item(8,0)->setText(ip2Qstring(network+1,base));
+        ui->tableWidget_Info->item(9,0)->setText(QString::number(wild-1));
+    }
     ui->tableWidget_Info->item(10,0)->setText(iptype);
     ui->tableWidget_Info->item(11,0)->setText(ipclass);
 
@@ -102,15 +112,27 @@ void MainWindow::on_horizontalSlider_valueChanged(int value)
     unsigned int networkFLSM = 0;
     netFLSM = ip&maskFLSM;
 
-    ui->tableWidget_FLSM->clearContents();
     ui->tableWidget_FLSM->setRowCount(nFLSM);
 
     for (int i = 0; i < nFLSM ; i++){
         networkFLSM = netFLSM|(hostsFLSM*i);
         ui->tableWidget_FLSM->setItem(i,0, new QTableWidgetItem(ip2Qstring(networkFLSM,base)));
-        ui->tableWidget_FLSM->setItem(i,1, new QTableWidgetItem(ip2Qstring(networkFLSM+1,base)+"-"+ip2Qstring((networkFLSM|wild)-1,base)));
-        ui->tableWidget_FLSM->setItem(i,2, new QTableWidgetItem(ip2Qstring(networkFLSM|wild,base)));
+        if (value > 30){
+            ui->tableWidget_FLSM->setItem(i,1, new QTableWidgetItem(ip2Qstring(networkFLSM,base)+"-"+ip2Qstring((networkFLSM|wild),base)));
+            ui->tableWidget_FLSM->setItem(i,2, new QTableWidgetItem("-"));
+        }else{
+            ui->tableWidget_FLSM->setItem(i,1, new QTableWidgetItem(ip2Qstring(networkFLSM+1,base)+"-"+ip2Qstring((networkFLSM|wild)-1,base)));
+            ui->tableWidget_FLSM->setItem(i,2, new QTableWidgetItem(ip2Qstring(networkFLSM|wild,base)));
+        }
+
+        if (network == networkFLSM){
+            ui->tableWidget_FLSM->item(i,0)->setBackground(QBrush(QColor::fromRgb(0,128,0)));
+            ui->tableWidget_FLSM->item(i,1)->setBackground(QBrush(QColor::fromRgb(0,128,0)));
+            ui->tableWidget_FLSM->item(i,2)->setBackground(QBrush(QColor::fromRgb(0,128,0)));
+        }
     }
+
+    ui->tableWidget_FLSM->resizeColumnsToContents();
 }
 
 
