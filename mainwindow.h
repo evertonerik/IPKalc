@@ -25,6 +25,10 @@ private slots:
     void on_lineEdit_CIDR_editingFinished();
 
 
+    void on_actionAbout_triggered();
+
+    void on_actionSair_triggered();
+
 private:
     Ui::MainWindow *ui;
 };

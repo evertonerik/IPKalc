@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "cmath"
-#include "QDebug"
+#include "qmessagebox.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -172,4 +172,16 @@ void MainWindow::on_lineEdit_CIDR_editingFinished()
 
 
 
+
+
+void MainWindow::on_actionAbout_triggered()
+{
+    QMessageBox::information(this,"About","Developer: Everton Erik\nEmail: everton_erik@hotmail.com\nGitHub: https://github.com/evertonerik/ipkalc\n V1.0",QMessageBox::Ok);
+}
+
+
+void MainWindow::on_actionSair_triggered()
+{
+   MainWindow::close();
+}
 
