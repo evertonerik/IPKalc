@@ -446,7 +446,7 @@
     <property name="title">
      <string>File</string>
     </property>
-    <addaction name="actionSalvar"/>
+    <addaction name="actionExport"/>
     <addaction name="actionSair"/>
    </widget>
    <widget class="QMenu" name="menuSettings">
@@ -513,7 +513,7 @@
     <string>Exit</string>
    </property>
   </action>
-  <action name="actionSalvar">
+  <action name="actionExport">
    <property name="text">
     <string>Export</string>
    </property>

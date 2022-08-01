@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "cmath"
 #include "qmessagebox.h"
+#include "dialogexport.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -186,8 +187,10 @@ void MainWindow::on_actionSair_triggered()
 }
 
 
-void MainWindow::on_actionSalvar_triggered()
+void MainWindow::on_actionExport_triggered()
 {
-
+    DialogExport diagexport;
+    diagexport.setModal(true);
+    diagexport.exec();
 }
 
