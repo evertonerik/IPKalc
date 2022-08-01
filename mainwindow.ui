@@ -163,14 +163,14 @@
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
          <widget class="QTableWidget" name="tableWidget_Info">
-          <property name="layoutDirection">
-           <enum>Qt::LeftToRight</enum>
+          <property name="editTriggers">
+           <set>QAbstractItemView::NoEditTriggers</set>
           </property>
           <property name="alternatingRowColors">
            <bool>true</bool>
           </property>
-          <property name="selectionMode">
-           <enum>QAbstractItemView::NoSelection</enum>
+          <property name="selectionBehavior">
+           <enum>QAbstractItemView::SelectRows</enum>
           </property>
           <attribute name="horizontalHeaderVisible">
            <bool>false</bool>
@@ -251,7 +251,7 @@
             <set>AlignTrailing|AlignVCenter</set>
            </property>
            <property name="flags">
-            <set>ItemIsEnabled</set>
+            <set>ItemIsSelectable|ItemIsEnabled</set>
            </property>
           </item>
           <item row="1" column="0">
@@ -262,7 +262,7 @@
             <set>AlignTrailing|AlignVCenter</set>
            </property>
            <property name="flags">
-            <set>ItemIsEnabled</set>
+            <set>ItemIsSelectable|ItemIsEnabled</set>
            </property>
           </item>
           <item row="2" column="0">
@@ -273,7 +273,7 @@
             <set>AlignTrailing|AlignVCenter</set>
            </property>
            <property name="flags">
-            <set>ItemIsEnabled</set>
+            <set>ItemIsSelectable|ItemIsEnabled</set>
            </property>
           </item>
           <item row="3" column="0">
@@ -284,7 +284,7 @@
             <set>AlignTrailing|AlignVCenter</set>
            </property>
            <property name="flags">
-            <set>ItemIsEnabled</set>
+            <set>ItemIsSelectable|ItemIsEnabled</set>
            </property>
           </item>
           <item row="4" column="0">
@@ -295,7 +295,7 @@
             <set>AlignTrailing|AlignVCenter</set>
            </property>
            <property name="flags">
-            <set>ItemIsEnabled</set>
+            <set>ItemIsSelectable|ItemIsEnabled</set>
            </property>
           </item>
           <item row="5" column="0">
@@ -306,7 +306,7 @@
             <set>AlignTrailing|AlignVCenter</set>
            </property>
            <property name="flags">
-            <set>ItemIsEnabled</set>
+            <set>ItemIsSelectable|ItemIsEnabled</set>
            </property>
           </item>
           <item row="6" column="0">
@@ -317,7 +317,7 @@
             <set>AlignTrailing|AlignVCenter</set>
            </property>
            <property name="flags">
-            <set>ItemIsEnabled</set>
+            <set>ItemIsSelectable|ItemIsEnabled</set>
            </property>
           </item>
           <item row="7" column="0">
@@ -328,7 +328,7 @@
             <set>AlignTrailing|AlignVCenter</set>
            </property>
            <property name="flags">
-            <set>ItemIsEnabled</set>
+            <set>ItemIsSelectable|ItemIsEnabled</set>
            </property>
           </item>
           <item row="8" column="0">
@@ -339,7 +339,7 @@
             <set>AlignTrailing|AlignVCenter</set>
            </property>
            <property name="flags">
-            <set>ItemIsEnabled</set>
+            <set>ItemIsSelectable|ItemIsEnabled</set>
            </property>
           </item>
           <item row="9" column="0">
@@ -350,7 +350,7 @@
             <set>AlignTrailing|AlignVCenter</set>
            </property>
            <property name="flags">
-            <set>ItemIsEnabled</set>
+            <set>ItemIsSelectable|ItemIsEnabled</set>
            </property>
           </item>
           <item row="10" column="0">
@@ -361,7 +361,7 @@
             <set>AlignTrailing|AlignVCenter</set>
            </property>
            <property name="flags">
-            <set>ItemIsEnabled</set>
+            <set>ItemIsSelectable|ItemIsEnabled</set>
            </property>
           </item>
           <item row="11" column="0">
@@ -372,7 +372,7 @@
             <set>AlignTrailing|AlignVCenter</set>
            </property>
            <property name="flags">
-            <set>ItemIsEnabled</set>
+            <set>ItemIsSelectable|ItemIsEnabled</set>
            </property>
           </item>
          </widget>
@@ -510,22 +510,12 @@
   </action>
   <action name="actionSair">
    <property name="text">
-    <string>Sair</string>
+    <string>Exit</string>
    </property>
   </action>
   <action name="actionSalvar">
    <property name="text">
     <string>Export</string>
-   </property>
-  </action>
-  <action name="actionCopiar">
-   <property name="text">
-    <string>Copiar</string>
-   </property>
-  </action>
-  <action name="actionConfigurar">
-   <property name="text">
-    <string>Configurar</string>
    </property>
   </action>
  </widget>

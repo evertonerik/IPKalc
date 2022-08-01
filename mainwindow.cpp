@@ -185,3 +185,9 @@ void MainWindow::on_actionSair_triggered()
    MainWindow::close();
 }
 
+
+void MainWindow::on_actionSalvar_triggered()
+{
+
+}
+
