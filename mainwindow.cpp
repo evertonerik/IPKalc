@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 #include "cmath"
 #include "qmessagebox.h"
-#include "dialogexport.h"
+#include "qclipboard.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -71,6 +71,7 @@ void MainWindow::on_horizontalSlider_valueChanged(int value)
         iptype = "Experimental";
     }
     if (value == 31){iptype += " - Point to Point";}
+    else if (value == 32){iptype += " - Loopback";}
 
 
     ui->lineEdit_CIDR->setText(QString::number(value));
@@ -189,8 +190,14 @@ void MainWindow::on_actionSair_triggered()
 
 void MainWindow::on_actionExport_triggered()
 {
-    DialogExport diagexport;
-    diagexport.setModal(true);
-    diagexport.exec();
+
+}
+
+
+void MainWindow::on_pushButton_clicked()
+{
+   QClipboard *clipboard = QGuiApplication::clipboard();
+
+   clipboard->setText("IP:"+ui->tableWidget_Info->item(0,0)->text()+ui->tableWidget_Info->item(4,0)->text()+"\nMask:"+ui->tableWidget_Info->item(2,0)->text()+"\nGateway:"+ui->tableWidget_Info->item(8,0)->text());
 }
 
