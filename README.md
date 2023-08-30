@@ -1,4 +1,4 @@
-# IPKalculator
+# IPKalc
 
 IPKalculator is an IP Calculator based on QT for IP addresses calculations.
 
